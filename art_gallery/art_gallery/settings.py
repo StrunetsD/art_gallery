@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'user',
     'rest_framework',
     'gallery',
-    'picture'
+    'picture',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

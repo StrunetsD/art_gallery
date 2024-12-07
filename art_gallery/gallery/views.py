@@ -5,9 +5,9 @@ from .serializer import *
 
 
 class GalleryListView(viewsets.ModelViewSet):
-    queryset=Gallery.objects.all()
-    serializer_class=GallerySerializer
-    permission_classes=()
+    queryset = Gallery.objects.all()
+    serializer_class = GallerySerializer
+    permission_classes = ()
 
 class GalleryDetailView(viewsets.ModelViewSet):
     pass
