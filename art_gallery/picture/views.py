@@ -9,11 +9,14 @@ class CategoryListView(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
     permission_classes = ()
     filterset_class = PictureFilter
+
+
 class PictureListView(viewsets.ModelViewSet):
     queryset = Picture.objects.all()
     serializer_class = PictureSerializer
     permission_classes = ()
     filterset_class = PictureFilter
+    
     
 class AuthorListView(viewsets.ModelViewSet):
     queryset = Author.objects.all()
