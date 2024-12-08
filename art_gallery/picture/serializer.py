@@ -1,5 +1,5 @@
 from rest_framework import  serializers
-from .models import Picture, Author, Category
+from .models import Picture, Author, Category, Exhibition
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -22,3 +22,10 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = ('id','name')
+
+
+class ExhibitionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Exhibition
+        fields = ('name', 'pictures')

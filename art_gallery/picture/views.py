@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Picture, Author, Category
-from .serializer import AuthorSerializer, PictureSerializer, CategorySerializer
-from .filters import PictureFilter, AuthorFilter, CategoryFilter
+from .models import Picture, Author, Category, Exhibition
+from .serializer import AuthorSerializer, PictureSerializer, CategorySerializer, ExhibitionSerializer
+from .filters import PictureFilter, AuthorFilter, CategoryFilter, ExhibitionFilter
 
 
 class CategoryListView(viewsets.ModelViewSet):
@@ -25,3 +25,9 @@ class AuthorListView(viewsets.ModelViewSet):
     permission_classes = ()
     filterset_class = AuthorFilter
 
+
+class ExhibitionListView(viewsets.ModelViewSet):
+    queryset = Exhibition.objects.all()
+    serializer_class = ExhibitionSerializer
+    permission_classes = ()
+    filter_class = ExhibitionFilter
