@@ -5,7 +5,7 @@ from django.conf import settings
 
 class Comment(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, 
+       'user.User', 
         on_delete=models.CASCADE,
         related_name="comments"
     )
