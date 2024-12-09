@@ -6,7 +6,7 @@ from user.views import UserRegisterView, UserLoginView, UserLogoutView
 from picture.views import PictureListView, AuthorListView, ExhibitionListView
 
 router = DefaultRouter(trailing_slash=True)
-router.register(r'api/gallery/list', GalleryListView)
+router.register(r'api/gallery_list', GalleryListView)
 router.register(r'api/author_list',AuthorListView)
 router.register(r'api/picture_list',PictureListView)
 router.register(r'api/exhibition_list', ExhibitionListView)

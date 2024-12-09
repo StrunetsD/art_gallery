@@ -9,6 +9,4 @@ class GalleryListView(viewsets.ModelViewSet):
     serializer_class = GallerySerializer
     permission_classes = ()
 
-class GalleryDetailView(viewsets.ModelViewSet):
-    pass
     
