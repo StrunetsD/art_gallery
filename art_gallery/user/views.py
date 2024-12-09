@@ -20,8 +20,9 @@ class UserLoginView(GenericAPIView):
     def post(self, request):
         serializer = UserLoginSerializer(data=request.data)
         if serializer.is_valid():
-            token = serializer.save()
-            return Response({'token': token}, status=status.HTTP_200_OK)
+            tokens = serializer.validated_data
+            return Response(tokens, status=status.HTTP_200_OK)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
@@ -33,6 +34,18 @@ class UserRegisterView(GenericAPIView):
     def post(self, request):
         serializer = UserRegistrationSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
+            user = serializer.save()
+
+            refresh = RefreshToken.for_user(user)
+            access_token = str(refresh.access_token)
+            refresh_token = str(refresh)
+
+            return Response(
+                {
+                    "message": "User registered successfully",
+                    "access": access_token,
+                    "refresh": refresh_token
+                },
+                status=status.HTTP_201_CREATED
+            )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
