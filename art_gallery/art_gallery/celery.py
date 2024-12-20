@@ -17,7 +17,7 @@ app.conf.beat_schedule = {
 
     },
     'task-every-morning': {
-        'task': 'user.tasks.ssend_message',
+        'task': 'user.tasks.send_message',
         'schedule': crontab(hour=8, minute=0),  
     },
 }
