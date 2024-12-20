@@ -16,6 +16,8 @@ class UserLoginSerializer(serializers.ModelSerializer):
         fields = (
             'username',
             'password',
+            'access',
+            'refresh'
         )
 
     def validate(self, data):

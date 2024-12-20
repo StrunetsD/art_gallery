@@ -6,9 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-# Migrations
-__migrations__/
-migrations/
 
 # Distribution / packaging
 .Python

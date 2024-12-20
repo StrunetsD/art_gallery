@@ -139,7 +139,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user.User'
-
+EMAIL_HOST_USER = 'd.strunetss@gmail.com'
 
 REST_FRAMEWORK = {
     'DATE_INPUT_FORMATS': 'iso-8601',
@@ -186,3 +186,12 @@ CACHES = {
         }
     }
 }
+
+# Указываем брокер сообщений
+CELERY_BROKER_URL = 'redis://localhost:6379/'
+# Указываем бэкенд для результатов (необязательно)
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/'
+# Настройка времени
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
